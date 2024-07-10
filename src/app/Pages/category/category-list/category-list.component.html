@@ -1,0 +1,57 @@
+<div class="container mt-5 category-page">
+    <h1 class="text-center mb-4">Category List</h1>
+    <p class="text-center mb-5">Browse through our collection of Categories.</p>
+
+    <div class="category-list">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h2 class="mb-4">Available Category </h2>
+            <button class="btn btn-secondary" [routerLink]="['/home/categories/add-Categoty']">
+                Add New Category
+            </button>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <!-- <th>Biography</th>
+                        <th>Nationality</th> -->
+                        <!-- <th>ISBN</th>
+                        <th>Description</th>
+                        <th>Price</th> -->
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let category of categories; index as i">
+                        <td>{{i+1}}</td>
+                        <td>{{ category.name }}</td>
+                        <td>{{ category.description }}</td>
+                        <!-- <td>{{ category.biography }}</td>
+                        <td>{{ category.nationality }}</td> -->
+                        <!-- <td>{{ book.ISBN }}</td>
+                        <td>{{ book.description }}</td>
+                        <td>{{ book.price | currency }}</td> -->
+                        <td class="text-center">
+                            <!-- <button class="btn btn-sm btn-outline-primary action-btn me-2"
+                                    (click)="onEditAuthor(author)"   [routerLink]="['/home/books/editAuthor', author._id]">
+                                    <i class="fas fa-edit"></i> Edit
+                                </button>
+                                <button class="btn btn-sm btn-outline-danger action-btn" (click)="onDeleteAuthor(author)">
+                                    <i class="fas fa-trash"></i> Delete
+                                </button> -->
+                                <button class="btn btn-sm btn-warning" (click)="onEditCategory(category)" [routerLink]="['/home/categories/editCategoty', category._id]">
+                                    <i class="fas fa-edit"></i>
+                                  </button>
+                                  <button class="btn btn-sm btn-danger ml-2" (click)="onDeleteCategory(category)">
+                                    <i class="fas fa-trash"></i>
+                                  </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,77 @@
+<div class="container mt-5 book-page">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>Add a New Book</h2>
+        <!-- <button class="btn btn-secondary" [routerLink]="['/home/books/getAllBooks']">
+            View All Books
+        </button> -->
+    </div>
+    <form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group mt-3">
+                    <label for="title">Title</label>
+                    <input type="text" formControlName="title" class="form-control" id="title" placeholder="Enter Book Title" />
+                    <div *ngIf="hasError('title', 'required')" class="text-danger">
+                        *Title is required
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group mt-3">
+                    <label for="author">Author</label>
+                    <select id="author" class="form-control" formControlName="author">
+                        <option *ngFor="let author of authors" [value]="author._id">{{author.name}}</option>
+                    </select>
+                    <div *ngIf="hasError('author', 'required')" class="text-danger">
+                        *Author is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group mt-3">
+                    <label for="category">Category</label>
+                    <select id="category" class="form-control" formControlName="category">
+                        <option *ngFor="let category of categories" [value]="category._id">{{category.name}}</option>
+                    </select>
+                    <div *ngIf="hasError('category', 'required')" class="text-danger">
+                        *Category is required
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group mt-3">
+                    <label for="ISBN">ISBN</label>
+                    <input type="text" formControlName="ISBN" class="form-control" id="ISBN" placeholder="Enter ISBN" />
+                    <div *ngIf="hasError('ISBN', 'required')" class="text-danger">
+                        *ISBN is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group mt-3">
+                    <label for="description">Description</label>
+                    <textarea formControlName="description" class="form-control" id="description" placeholder="Enter Description"></textarea>
+                    <div *ngIf="hasError('description', 'required')" class="text-danger">
+                        *Description is required
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group mt-3">
+                    <label for="price">Price</label>
+                    <input type="number" formControlName="price" class="form-control" id="price" placeholder="Enter Price" />
+                    <div *ngIf="hasError('price', 'required')" class="text-danger">
+                        *Price is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary mt-4 w-100">
+            {{ isEditing ? 'Update Book' : 'Add Book' }}
+          </button>
+    </form>
+</div>

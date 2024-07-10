@@ -1,0 +1,78 @@
+// Define color variables for easy theming
+$primary-color: #3498db;
+$secondary-color: #555;
+$background-gradient-start: rgba(238, 174, 202, 1);
+$background-gradient-end: rgba(148, 187, 233, 1);
+
+.home-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 94.7vh; // Adjust as needed
+    background: radial-gradient(circle, $background-gradient-start 0%, $background-gradient-end 100%);
+    padding: 3rem;
+    color: #333; // Default text color
+
+    .content {
+        text-align: center;
+        margin-bottom: 3rem;
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            text-decoration: none;
+            background-color: $primary-color;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+
+            &:hover {
+                background-color: darken($primary-color, 10%);
+            }
+        }
+    }
+
+    .features {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        max-width: 1200px;
+
+        .feature {
+            text-align: center;
+            padding: 1rem;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+
+            i {
+                font-size: 3rem;
+                color: $primary-color;
+                margin-bottom: 1rem;
+            }
+
+            h3 {
+                font-size: 1.5rem;
+                margin-bottom: 1rem;
+            }
+
+            p {
+                color: $secondary-color;
+                font-size: 1.2rem;
+            }
+        }
+    }
+}

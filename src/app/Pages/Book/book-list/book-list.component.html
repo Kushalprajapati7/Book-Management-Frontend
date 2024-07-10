@@ -1,0 +1,48 @@
+<div class="container mt-5 book-page">
+    <h1 class="text-center mb-3">List Of Books</h1>
+    <p class="text-center mb-5">Browse through our collection of books.</p>
+
+    <div class="book-list">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h2 class="">Available Books</h2>
+            <button class="btn btn-secondary" [routerLink]="['/home/books/add-Book']">
+                Add New Book
+            </button>
+        </div>
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>No.</th>
+                            <th>Title</th>
+                            <th>Author</th>
+                            <th>Category</th>
+                            <th>ISBN</th>
+                            <th>Description</th>
+                            <th>Price</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let book of books; index as i">
+                            <td>{{i+1}}</td>
+                            <td>{{ book.title}}</td>
+                            <td>{{ book.author_name }}</td>
+                            <td>{{ book.category_name }}</td>
+                            <td>{{ book.ISBN }}</td>
+                            <td>{{ book.description }}</td>
+                            <td>₹{{ book.price }}</td>
+                            <td class="text-center">
+                                <button class="btn btn-sm btn-warning" (click)="onEditBook(book)">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn btn-sm btn-danger ml-2" (click)="onDeleteBook(book)">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+        </div>
+    </div>
+</div>

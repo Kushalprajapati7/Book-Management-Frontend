@@ -1,0 +1,49 @@
+
+// Define color variables for easy theming
+$primary-color: #3498db;
+$secondary-color: #555;
+$background-color: #f8f9fa;
+$table-header-color: #343a40;
+$table-header-bg-color: #e9ecef;
+
+.author-page {
+    padding: 2rem;
+    background-color: $background-color;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+
+    h2 {
+        font-size: 2rem;
+        color: $primary-color;
+        margin-bottom: 1rem;
+    }
+
+    .form-group {
+        margin-bottom: 1rem;
+
+        label {
+            font-weight: bold;
+        }
+
+        .form-control {
+            border-radius: 5px;
+        }
+
+        .text-danger {
+            font-size: 0.875rem;
+        }
+    }
+
+    .btn-primary {
+        background-color: $primary-color;
+        border-color: $primary-color;
+        &:hover {
+            background-color: darken($primary-color, 10%);
+            border-color: darken($primary-color, 10%);
+        }
+    }
+
+    .btn-secondary {
+        margin-top: 1rem;
+    }
+}

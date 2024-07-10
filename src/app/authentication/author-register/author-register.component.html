@@ -1,0 +1,58 @@
+<div class="containers">
+  <div class="register-container">
+    <h2 class="text-center mb-4">Author Registration</h2>
+    <form [formGroup]="authorRegisterForm" (ngSubmit)="onSubmit()">
+      <div class="form-group mt-3">
+        <label for="name">Name</label>
+        <input type="text" formControlName="name" class="form-control" id="name" placeholder="Enter Name" />
+        <div *ngIf="hasError('name', 'required')" class="text-danger">
+          *Name is required
+        </div>
+      </div>
+      <div class="form-group mt-3">
+        <label for="email">E-mail</label>
+        <input type="text" formControlName="email" class="form-control" id="email" placeholder="Enter E-mail" />
+        <div *ngIf="hasError('email', 'required')" class="text-danger">
+          *E-mail is required
+        </div>
+        <div *ngIf="hasError('email', 'email')" class="text-danger">
+          *Invalid email format
+        </div>
+      </div>
+      <div class="form-group mt-3">
+        <label for="password">Password</label>
+        <input type="password" formControlName="password" class="form-control" id="password" placeholder="Password" />
+        <div *ngIf="hasError('password', 'required')" class="text-danger">
+          *Password is required
+        </div>
+      </div>
+      <div class="form-group mt-3">
+        <label for="biography">Biography</label>
+        <textarea formControlName="biography" class="form-control" id="biography"
+          placeholder="Enter Biography"></textarea>
+        <div *ngIf="hasError('biography', 'required')" class="text-danger">
+          *Biography is required
+        </div>
+      </div>
+      <div class="form-group mt-3">
+        <label for="nationality">Nationality</label>
+        <input type="text" formControlName="nationality" class="form-control" id="nationality"
+          placeholder="Enter Nationality" />
+        <div *ngIf="hasError('nationality', 'required')" class="text-danger">
+          *Nationality is required
+        </div>
+      </div>
+      <div class="form-group mt-3">
+        <label for="role">Role</label>
+        <input type="text" formControlName="role" class="form-control" id="role" value="author" readonly />
+      </div>
+      <button type="submit" class="btn btn-primary mt-4 w-100">Submit</button>
+    </form>
+    <div class="text-center mt-3">
+      <p>
+        Already have an account?
+        <a routerLink="/auth/login">Login</a>
+      </p>
+    </div>
+  </div>
+</div>

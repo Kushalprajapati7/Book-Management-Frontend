@@ -1,0 +1,81 @@
+<div class="container mt-5 author-page">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>Add a New Author</h2>
+        <!-- <button class="btn btn-secondary" [routerLink]="['/home/books/getAllBooks']">
+            View All Books
+        </button> -->
+    </div>
+    <form [formGroup]="authorForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group mt-3">
+                    <label for="name">Name</label>
+                    <input type="text" formControlName="name" class="form-control" id="name" placeholder="Enter Name" />
+                    <div *ngIf="hasError('name', 'required')" class="text-danger">
+                        *Name is required
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group mt-3">
+                    <label for="email">E-mail</label>
+                    <input type="text" formControlName="email" class="form-control" id="email"
+                        placeholder="Enter E-mail" />
+                    <div *ngIf="hasError('email', 'required')" class="text-danger">
+                        *E-mail is required
+                    </div>
+                    <div *ngIf="hasError('email', 'email')" class="text-danger">
+                        *Invalid email format
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group mt-3">
+                    <label for="password">Password</label>
+                    <input type="password" formControlName="password" class="form-control" id="password"
+                        placeholder="Password" />
+                    <div *ngIf="hasError('password', 'required')" class="text-danger">
+                        *Password is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-md-4">
+                <div class="form-group mt-3">
+                    <label for="biography">Biography</label>
+                    <textarea formControlName="biography" class="form-control" id="biography"
+                        placeholder="Enter Biography"></textarea>
+                    <div *ngIf="hasError('biography', 'required')" class="text-danger">
+                        *Biography is required
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group mt-3">
+                    <label for="nationality">Nationality</label>
+                    <select class="form-control" name="nationality" id="nationality" formControlName="nationality">
+                        <option *ngFor="let country of countries" [value]="country.name">{{ country.name }}</option>
+                    </select>
+                    <div *ngIf="hasError('nationality', 'required')" class="text-danger">
+                        *Nationality is required
+                    </div>
+                </div>
+                
+            </div>
+            <div class="col-md-4">
+                <div class="form-group mt-3">
+                    <label for="role">Role</label>
+                    <input type="text" formControlName="role" class="form-control" id="role" placeholder="Enter role" />
+                    <div *ngIf="hasError('role', 'required')" class="text-danger">
+                        *Role is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary mt-4 w-100">
+            {{ isEditing ? 'Update Author' : 'Add Author' }}
+        </button>
+    </form>
+</div>

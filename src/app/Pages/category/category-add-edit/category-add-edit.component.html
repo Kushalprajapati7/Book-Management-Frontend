@@ -1,0 +1,35 @@
+<div class="container mt-5 category-page">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>Add a New Category</h2>
+        <!-- <button class="btn btn-secondary" [routerLink]="['/home/books/getAllBooks']">
+            View All Books
+        </button> -->
+    </div>
+    <form [formGroup]="categoryForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group mt-3">
+                    <label for="name">Name</label>
+                    <input type="text" formControlName="name" class="form-control" id="name" placeholder="Enter Name" />
+                    <div *ngIf="hasError('name', 'required')" class="text-danger">
+                        *Name is required
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group mt-3">
+                    <label for="description">Description</label>
+                    <textarea formControlName="description" class="form-control" id="description"
+                        placeholder="Enter description"></textarea>
+                    <div *ngIf="hasError('description', 'required')" class="text-danger">
+                        *Biography is required
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+        <button type="submit" class="btn btn-primary mt-4 w-100">
+            {{ isEditing ? 'Update Author' : 'Add Author' }}
+        </button>
+    </form>
+</div>
